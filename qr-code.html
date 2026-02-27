@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code — Martin V. Burks, IV</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a1628;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', -apple-system, sans-serif;
+            padding: 32px;
+        }
+        .label {
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+        #qrcode {
+            padding: 24px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 0 60px rgba(201, 168, 76, 0.15);
+        }
+        #qrcode canvas { display: block; }
+        .name {
+            margin-top: 32px;
+            color: #c9a84c;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <p class="label">Scan to connect</p>
+    <div id="qrcode"></div>
+    <p class="name">Martin V. Burks, IV</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script>
+        const qr = qrcode(0, 'M');
+        qr.addData('https://pathque.com/card');
+        qr.make();
+
+        const cellSize = 8;
+        const size = qr.getModuleCount();
+        const canvasSize = size * cellSize;
+
+        const canvas = document.createElement('canvas');
+        canvas.width = canvasSize;
+        canvas.height = canvasSize;
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvasSize, canvasSize);
+
+        ctx.fillStyle = '#0a1628';
+        for (let row = 0; row < size; row++) {
+            for (let col = 0; col < size; col++) {
+                if (qr.isDark(row, col)) {
+                    ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+                }
+            }
+        }
+
+        document.getElementById('qrcode').appendChild(canvas);
+    </script>
+</body>
+</html>
