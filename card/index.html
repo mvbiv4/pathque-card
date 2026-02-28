@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Martin V. Burks, IV M.D., MBA, FCAP</title>
+    <meta name="description" content="Digital business card for Martin V. Burks, IV — Physician, AI & Digital Pathology">
+    <meta property="og:title" content="Martin V. Burks, IV M.D., MBA, FCAP">
+    <meta property="og:description" content="Physician | AI & Digital Pathology">
+    <meta property="og:url" content="https://pathque.com/card">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy: #0a1628;
+            --navy-light: #111d35;
+            --navy-mid: #162240;
+            --gold: #c9a84c;
+            --gold-light: #d4b96a;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+            --white: #ffffff;
+            --gray-light: #a0aec0;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        html { font-size: 16px; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--navy);
+            color: var(--white);
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: linear-gradient(165deg, var(--navy-light) 0%, var(--navy) 50%, var(--navy-mid) 100%);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 20px;
+            padding: 48px 32px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .headshot {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            margin: 0 auto 28px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(201, 168, 76, 0.15);
+        }
+
+        .headshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .name {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+
+        .credentials {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .divider {
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 24px;
+            opacity: 0.5;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--gray-light);
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(201, 168, 76, 0.7);
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 36px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 400;
+            transition: all 0.2s ease;
+        }
+
+        .link:hover, .link:active {
+            background: var(--gold-dim);
+            border-color: rgba(201, 168, 76, 0.3);
+        }
+
+        .link-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        .link-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--gold);
+        }
+
+        .link-label {
+            color: var(--gray-light);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 1px;
+        }
+
+        .link-value {
+            display: block;
+        }
+
+        .qr-section {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .qr-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-light);
+            margin-bottom: 16px;
+        }
+
+        #qrcode {
+            display: inline-block;
+            padding: 12px;
+            background: var(--white);
+            border-radius: 12px;
+        }
+
+        #qrcode canvas {
+            display: block;
+            border-radius: 4px;
+        }
+
+        .save-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            border-radius: 12px;
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .save-btn:hover, .save-btn:active {
+            background: var(--gold-light);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 380px) {
+            .card { padding: 40px 24px 32px; }
+            .name { font-size: 21px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="headshot"><img src="headshot.jpg" alt="Martin V. Burks, IV"></div>
+
+        <h1 class="name">Martin V. Burks, IV</h1>
+        <p class="credentials">M.D. &middot; MBA &middot; FCAP</p>
+
+        <div class="divider"></div>
+
+        <p class="title">AI Architect &nbsp;|&nbsp; Physician</p>
+
+        <p class="tagline">Where clinical expertise meets AI strategy.<br>From navigation to implementation.</p>
+
+        <div class="links">
+            <a href="mailto:Martin.burksiv@gmail.com" class="link">
+                <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+                <div>
+                    <span class="link-label">Email</span>
+                    <span class="link-value">Martin.burksiv@gmail.com</span>
+                </div>
+            </a>
+            <a href="tel:+14348065908" class="link">
+                <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+                <div>
+                    <span class="link-label">Phone</span>
+                    <span class="link-value">(434) 806-5908</span>
+                </div>
+            </a>
+            <a href="https://linkedin.com/in/martinburks" target="_blank" class="link">
+                <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></div>
+                <div>
+                    <span class="link-label">LinkedIn</span>
+                    <span class="link-value">linkedin.com/in/martinburks</span>
+                </div>
+            </a>
+            <a href="https://pathque.com" target="_blank" class="link">
+                <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+                <div>
+                    <span class="link-label">Website</span>
+                    <span class="link-value">pathque.com</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="qr-section">
+            <p class="qr-label">Scan to connect</p>
+            <div id="qrcode"></div>
+        </div>
+
+        <a href="martin-burks.vcf" download="Martin-Burks.vcf" class="save-btn">Save Contact</a>
+
+        <p class="footer">PATHQUE</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script>
+        const qr = qrcode(0, 'M');
+        qr.addData('https://pathque.com/card');
+        qr.make();
+
+        const cellSize = 5;
+        const margin = 0;
+        const size = qr.getModuleCount();
+        const canvasSize = size * cellSize + margin * 2;
+
+        const canvas = document.createElement('canvas');
+        canvas.width = canvasSize;
+        canvas.height = canvasSize;
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvasSize, canvasSize);
+
+        ctx.fillStyle = '#0a1628';
+        for (let row = 0; row < size; row++) {
+            for (let col = 0; col < size; col++) {
+                if (qr.isDark(row, col)) {
+                    ctx.fillRect(col * cellSize + margin, row * cellSize + margin, cellSize, cellSize);
+                }
+            }
+        }
+
+        document.getElementById('qrcode').appendChild(canvas);
+    </script>
+</body>
+</html>
