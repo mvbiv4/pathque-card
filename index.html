@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pathque Consulting — AI Governance for Pathology</title>
-    <meta name="description" content="Pathque Consulting helps pathology organizations build AI governance infrastructure. Led by Martin Burks IV, MD, MBA, FCAP — bridging clinical medicine, technology, and business.">
-    <meta name="keywords" content="AI governance, pathology, digital pathology, healthcare AI, consulting, Joint Commission, CHAI framework">
-    <meta property="og:title" content="Pathque Consulting — AI Governance for Pathology">
-    <meta property="og:description" content="The Joint Commission told 22,000 healthcare organizations they need AI governance. We help you build it.">
+    <title>Pathque — AI Strategy for Healthcare, Built by a Physician</title>
+    <meta name="description" content="Pathque helps pathology and healthcare organizations build AI governance, strategy, and implementation. Led by Martin Burks IV, MD, MBA, FCAP — AI Architect & Physician.">
+    <meta name="keywords" content="AI governance, pathology, digital pathology, healthcare AI, consulting, AI strategy, physician leadership">
+    <meta property="og:title" content="Pathque — AI Strategy for Healthcare, Built by a Physician">
+    <meta property="og:description" content="AI governance and strategy for pathology organizations. Clinical expertise meets AI architecture.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pathque.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ===== RESET & BASE ===== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
@@ -24,6 +23,7 @@
             --gold: #c9a84c;
             --gold-light: #d4b96a;
             --gold-dark: #a88a3a;
+            --gold-dim: rgba(201, 168, 76, 0.08);
             --white: #ffffff;
             --off-white: #f0f0f0;
             --gray-100: #e8eaed;
@@ -31,8 +31,8 @@
             --gray-300: #9ca3af;
             --gray-400: #6b7280;
             --gray-500: #374151;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
         }
 
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -43,14 +43,13 @@
             background: var(--navy);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
 
         a { color: inherit; text-decoration: none; }
         img { max-width: 100%; display: block; }
 
-        /* ===== NAVIGATION ===== */
+        /* ===== NAV ===== */
         .nav {
             position: fixed;
             top: 0;
@@ -67,7 +66,6 @@
         .nav.scrolled {
             background: rgba(10, 22, 40, 0.95);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             padding: 0.75rem 2rem;
             box-shadow: 0 1px 0 rgba(201, 168, 76, 0.1);
         }
@@ -76,7 +74,6 @@
             font-family: var(--font-serif);
             font-size: 1.5rem;
             font-weight: 600;
-            letter-spacing: 0.02em;
             color: var(--white);
         }
 
@@ -130,11 +127,7 @@
             cursor: pointer;
         }
 
-        .nav-cta:hover {
-            background: var(--gold);
-            color: var(--navy) !important;
-        }
-
+        .nav-cta:hover { background: var(--gold); color: var(--navy) !important; }
         .nav-cta::after { display: none !important; }
 
         .nav-toggle {
@@ -174,7 +167,6 @@
                 linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
         }
 
-        /* Subtle grid pattern */
         .hero-bg::before {
             content: '';
             position: absolute;
@@ -184,7 +176,6 @@
                 linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
             background-size: 60px 60px;
             mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
-            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
         }
 
         .hero-content {
@@ -192,7 +183,13 @@
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 4rem;
+            align-items: center;
         }
+
+        .hero-text { z-index: 1; }
 
         .hero-label {
             display: inline-flex;
@@ -211,7 +208,6 @@
 
         .hero-label::before {
             content: '';
-            display: block;
             width: 32px;
             height: 1px;
             background: var(--gold);
@@ -219,12 +215,11 @@
 
         .hero-title {
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 600;
             line-height: 1.1;
             letter-spacing: -0.01em;
             color: var(--white);
-            max-width: 800px;
             margin-bottom: 1.75rem;
             opacity: 0;
             transform: translateY(20px);
@@ -240,7 +235,7 @@
             font-size: 1.125rem;
             line-height: 1.7;
             color: var(--gray-300);
-            max-width: 560px;
+            max-width: 540px;
             margin-bottom: 3rem;
             opacity: 0;
             transform: translateY(20px);
@@ -257,6 +252,83 @@
             animation: fadeUp 0.8s 0.8s forwards;
         }
 
+        .hero-photo {
+            opacity: 0;
+            animation: fadeUp 0.8s 0.6s forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .hero-headshot {
+            width: 280px;
+            height: 340px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid rgba(201, 168, 76, 0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(201, 168, 76, 0.05);
+        }
+
+        .hero-headshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .hero-name-card {
+            text-align: center;
+        }
+
+        .hero-name-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-name-card p {
+            font-size: 0.8125rem;
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 0.04em;
+        }
+
+        .hero-name-card .creds {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            margin-top: 0.25rem;
+        }
+
+        .hero-stat-bar {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(201, 168, 76, 0.15);
+            opacity: 0;
+            animation: fadeUp 0.8s 1.2s forwards;
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .hero-stat-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-top: 0.25rem;
+        }
+
+        /* ===== BUTTONS ===== */
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -300,49 +372,10 @@
 
         .btn-secondary:hover { color: var(--white); }
 
-        .hero-stat-bar {
-            position: absolute;
-            bottom: 4rem;
-            left: 0;
-            right: 0;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(201, 168, 76, 0.15);
-            opacity: 0;
-            animation: fadeUp 0.8s 1.2s forwards;
-        }
-
-        .hero-stat {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .hero-stat-number {
-            font-family: var(--font-serif);
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: var(--gold);
-        }
-
-        .hero-stat-label {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--gray-400);
-        }
-
-        /* ===== SECTIONS (shared) ===== */
+        /* ===== SECTIONS ===== */
         section { padding: 7rem 2rem; }
 
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .section-container { max-width: 1200px; margin: 0 auto; }
 
         .section-label {
             display: inline-flex;
@@ -368,7 +401,6 @@
             font-size: clamp(2rem, 3.5vw, 2.75rem);
             font-weight: 600;
             line-height: 1.15;
-            letter-spacing: -0.01em;
             color: var(--white);
             margin-bottom: 1.25rem;
         }
@@ -380,13 +412,13 @@
             max-width: 600px;
         }
 
-        /* ===== ABOUT ===== */
-        .about {
+        /* ===== PROBLEM/URGENCY ===== */
+        .urgency {
             background: var(--navy-light);
             position: relative;
         }
 
-        .about::before {
+        .urgency::before {
             content: '';
             position: absolute;
             top: 0;
@@ -395,6 +427,57 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.2), transparent);
         }
+
+        .urgency-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .urgency-card {
+            padding: 2rem;
+            background: rgba(201, 168, 76, 0.03);
+            border: 1px solid rgba(201, 168, 76, 0.08);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .urgency-card:hover {
+            border-color: rgba(201, 168, 76, 0.2);
+            background: rgba(201, 168, 76, 0.05);
+        }
+
+        .urgency-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .urgency-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+
+        .urgency-card p {
+            font-size: 0.9375rem;
+            line-height: 1.65;
+            color: var(--gray-300);
+        }
+
+        .urgency-card .stat {
+            display: block;
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-top: 1rem;
+        }
+
+        /* ===== ABOUT ===== */
+        .about { background: var(--navy); }
 
         .about-grid {
             display: grid;
@@ -410,18 +493,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .about-text p:last-of-type { margin-bottom: 2rem; }
-
-        .about-highlight {
-            color: var(--gold) !important;
-            font-weight: 500;
-        }
-
-        .about-intersect {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
+        .about-highlight { color: var(--gold) !important; font-weight: 500; }
 
         .intersect-item {
             display: flex;
@@ -431,6 +503,7 @@
             background: rgba(201, 168, 76, 0.04);
             border: 1px solid rgba(201, 168, 76, 0.08);
             border-radius: 4px;
+            margin-bottom: 1.25rem;
             transition: all 0.3s ease;
         }
 
@@ -450,11 +523,7 @@
             border-radius: 4px;
         }
 
-        .intersect-icon svg {
-            width: 22px;
-            height: 22px;
-            color: var(--gold);
-        }
+        .intersect-icon svg { width: 22px; height: 22px; color: var(--gold); }
 
         .intersect-content h4 {
             font-size: 0.9375rem;
@@ -470,19 +539,20 @@
         }
 
         /* ===== SERVICES ===== */
-        .services {
-            background: var(--navy);
-            position: relative;
+        .services { background: var(--navy-light); position: relative; }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.2), transparent);
         }
 
-        .services-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .services-header .section-desc {
-            margin: 0 auto;
-        }
+        .services-header { text-align: center; margin-bottom: 4rem; }
+        .services-header .section-desc { margin: 0 auto; }
 
         .services-grid {
             display: grid;
@@ -493,7 +563,7 @@
         .service-card {
             position: relative;
             padding: 2.5rem 2rem;
-            background: var(--navy-light);
+            background: var(--navy);
             border: 1px solid rgba(201, 168, 76, 0.08);
             border-radius: 4px;
             transition: all 0.4s ease;
@@ -585,24 +655,10 @@
         }
 
         .service-link:hover { gap: 0.875rem; }
-
         .service-link svg { width: 14px; height: 14px; }
 
         /* ===== CREDENTIALS ===== */
-        .credentials {
-            background: var(--navy-light);
-            position: relative;
-        }
-
-        .credentials::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.2), transparent);
-        }
+        .credentials { background: var(--navy); position: relative; }
 
         .credentials-grid {
             display: grid;
@@ -639,20 +695,10 @@
             box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
         }
 
-        .cred-item h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 0.25rem;
-        }
+        .cred-item h4 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+        .cred-item p { font-size: 0.875rem; color: var(--gray-300); line-height: 1.5; }
 
-        .cred-item p {
-            font-size: 0.875rem;
-            color: var(--gray-300);
-            line-height: 1.5;
-        }
-
-        .cred-item .cred-tag {
+        .cred-tag {
             display: inline-block;
             margin-top: 0.375rem;
             padding: 0.125rem 0.5rem;
@@ -666,11 +712,69 @@
             color: var(--gold);
         }
 
-        /* ===== CTA / CONTACT ===== */
-        .contact {
-            background: var(--navy);
+        /* ===== SIGNAL BAR ===== */
+        .signal-bar {
+            background: var(--navy-light);
+            padding: 4rem 2rem;
             position: relative;
-            overflow: hidden;
+        }
+
+        .signal-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.2), transparent);
+        }
+
+        .signal-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .signal-bar-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+        }
+
+        .signal-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .signal-item {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--gray-400);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .signal-item:hover { color: var(--gray-200); }
+
+        /* ===== CONTACT ===== */
+        .contact { background: var(--navy-light); position: relative; overflow: hidden; }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.2), transparent);
         }
 
         .contact-inner {
@@ -680,14 +784,7 @@
             text-align: center;
         }
 
-        .contact-inner .section-title {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-inner .section-desc {
-            margin: 0 auto 3rem;
-            max-width: 520px;
-        }
+        .contact-inner .section-desc { margin: 0 auto 3rem; max-width: 520px; }
 
         .contact-actions {
             display: flex;
@@ -717,12 +814,7 @@
         }
 
         .contact-detail:hover { color: var(--white); }
-
-        .contact-detail svg {
-            width: 18px;
-            height: 18px;
-            color: var(--gold);
-        }
+        .contact-detail svg { width: 18px; height: 18px; color: var(--gold); }
 
         /* ===== FOOTER ===== */
         .footer {
@@ -739,43 +831,11 @@
             justify-content: space-between;
         }
 
-        .footer-text {
-            font-size: 0.8125rem;
-            color: var(--gray-400);
-        }
+        .footer-text { font-size: 0.8125rem; color: var(--gray-400); }
 
-        .footer-links {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .footer-links a {
-            font-size: 0.8125rem;
-            color: var(--gray-400);
-            transition: color 0.3s ease;
-        }
-
+        .footer-links { display: flex; align-items: center; gap: 1.5rem; }
+        .footer-links a { font-size: 0.8125rem; color: var(--gray-400); transition: color 0.3s; }
         .footer-links a:hover { color: var(--gold); }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
 
         /* ===== MOBILE MENU ===== */
         .mobile-menu {
@@ -785,7 +845,6 @@
             z-index: 999;
             background: rgba(10, 22, 40, 0.98);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -800,7 +859,6 @@
             color: var(--gray-200);
             letter-spacing: 0.04em;
             text-transform: uppercase;
-            transition: color 0.3s ease;
         }
 
         .mobile-menu a:hover { color: var(--gold); }
@@ -812,51 +870,43 @@
             background: none;
             border: none;
             cursor: pointer;
-            padding: 8px;
         }
 
         .mobile-close svg { width: 24px; height: 24px; color: var(--white); }
 
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
+            .hero-content { grid-template-columns: 1fr; }
+            .hero-photo { display: none; }
             .about-grid { grid-template-columns: 1fr; gap: 3rem; }
             .services-grid { grid-template-columns: 1fr 1fr; }
             .credentials-grid { gap: 3rem; }
-            .hero-stat-bar { gap: 2rem; }
+            .urgency-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
             section { padding: 5rem 1.5rem; }
-
             .nav-links { display: none; }
             .nav-toggle { display: flex; }
-
             .hero { padding: 7rem 1.5rem 5rem; min-height: auto; }
-            .hero-stat-bar {
-                position: relative;
-                bottom: auto;
-                margin-top: 3rem;
-                flex-wrap: wrap;
-                gap: 1.5rem;
-            }
-
+            .hero-stat-bar { flex-wrap: wrap; gap: 1.5rem; }
             .services-grid { grid-template-columns: 1fr; }
-
-            .credentials-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-
-            .contact-details {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
+            .credentials-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .urgency-grid { grid-template-columns: 1fr; }
+            .contact-details { flex-direction: column; gap: 1rem; }
+            .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+            .signal-logos { gap: 2rem; }
         }
 
         @media (max-width: 480px) {
@@ -868,14 +918,15 @@
 </head>
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- NAV -->
     <nav class="nav" id="nav">
         <a href="#" class="nav-logo">Path<span>que</span></a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#credentials">Credentials</a></li>
-            <li><a href="#contact" class="nav-cta">Schedule a Consultation</a></li>
+            <li><a href="card/" style="color:var(--gray-300)">Digital Card</a></li>
+            <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
         </ul>
         <button class="nav-toggle" id="navToggle" aria-label="Open menu">
             <span></span><span></span><span></span>
@@ -890,36 +941,77 @@
         <a href="#about" onclick="closeMobile()">About</a>
         <a href="#services" onclick="closeMobile()">Services</a>
         <a href="#credentials" onclick="closeMobile()">Credentials</a>
-        <a href="#contact" onclick="closeMobile()">Schedule a Consultation</a>
+        <a href="card/" onclick="closeMobile()">Digital Card</a>
+        <a href="#contact" onclick="closeMobile()">Get in Touch</a>
     </div>
 
     <!-- HERO -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <div class="hero-label">Pathque Consulting</div>
-            <h1 class="hero-title">AI Governance for<br><em>Pathology</em> Organizations</h1>
-            <p class="hero-subtitle">The Joint Commission just told 22,000 healthcare organizations they need AI governance. Most don't know where to start. We do.</p>
-            <div class="hero-actions">
-                <a href="mailto:martin.burksiv@gmail.com?subject=Pathque%20Consulting%20Inquiry" class="btn-primary">
-                    Schedule a Consultation
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </a>
-                <a href="#services" class="btn-secondary">Explore Services ↓</a>
+            <div class="hero-text">
+                <div class="hero-label">AI Architect · Physician</div>
+                <h1 class="hero-title">Healthcare AI strategy.<br>Built from the <em>clinical side</em><br>of the table.</h1>
+                <p class="hero-subtitle">Most AI strategies are written by vendors or consultants who've never touched a patient. Pathque is different. We build governance, strategy, and implementation plans from inside the workflow — because that's where AI either works or fails.</p>
+                <div class="hero-actions">
+                    <a href="mailto:martin.burksiv@gmail.com?subject=Pathque%20Inquiry" class="btn-primary">
+                        Start a Conversation
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                    <a href="#services" class="btn-secondary">See What We Do ↓</a>
+                </div>
+            </div>
+            <div class="hero-photo">
+                <div class="hero-headshot">
+                    <img src="card/headshot.jpg" alt="Martin V. Burks, IV M.D., MBA, FCAP">
+                </div>
+                <div class="hero-name-card">
+                    <h3>Martin V. Burks, IV</h3>
+                    <p>AI Architect · Physician</p>
+                    <p class="creds">MD · MBA · FCAP</p>
+                </div>
+            </div>
+            <div class="hero-stat-bar">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">22,000+</div>
+                    <div class="hero-stat-label">Organizations Need AI Governance</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">7</div>
+                    <div class="hero-stat-label">FDA-Cleared Pathology AI Tools</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">$0</div>
+                    <div class="hero-stat-label">Medicare Reimbursement for AI</div>
+                </div>
             </div>
         </div>
-        <div class="hero-stat-bar">
-            <div class="hero-stat">
-                <div class="hero-stat-number">22,000+</div>
-                <div class="hero-stat-label">Organizations Need AI Governance</div>
+    </section>
+
+    <!-- URGENCY / PROBLEM -->
+    <section class="urgency" id="urgency">
+        <div class="section-container">
+            <div class="reveal">
+                <div class="section-label">The Problem</div>
+                <h2 class="section-title">AI in Healthcare Is Moving.<br>Most Organizations Aren't Ready.</h2>
+                <p class="section-desc">The Joint Commission, FDA, and CMS are all moving on AI governance. Organizations that wait will be playing catch-up against a regulatory clock that's already ticking.</p>
             </div>
-            <div class="hero-stat">
-                <div class="hero-stat-number">MD/MBA</div>
-                <div class="hero-stat-label">Clinical × Business Expertise</div>
-            </div>
-            <div class="hero-stat">
-                <div class="hero-stat-number">CAP</div>
-                <div class="hero-stat-label">Committee-Level Policy Work</div>
+            <div class="urgency-grid">
+                <div class="urgency-card reveal">
+                    <div class="urgency-icon">⚖️</div>
+                    <h3>The Governance Gap</h3>
+                    <p>The Joint Commission and CHAI released a 7-pillar AI governance framework. Voluntary today. Mandatory tomorrow. Most health systems don't have a single pillar in place.</p>
+                </div>
+                <div class="urgency-card reveal">
+                    <div class="urgency-icon">💰</div>
+                    <h3>The Reimbursement Problem</h3>
+                    <p>FDA-cleared AI tools exist. But Medicare won't pay for them yet. Organizations that deploy AI without a reimbursement strategy are burning capital with no return.</p>
+                </div>
+                <div class="urgency-card reveal">
+                    <div class="urgency-icon">🔬</div>
+                    <h3>The Expertise Gap</h3>
+                    <p>Vendors sell technology. Consultants sell slide decks. Neither has sat at a microscope at 2am. Effective AI strategy requires someone who has done both — built the tools and used them clinically.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -930,19 +1022,19 @@
             <div class="about-grid">
                 <div class="about-text reveal">
                     <div class="section-label">About</div>
-                    <h2 class="section-title">Where Clinical Medicine Meets AI Strategy</h2>
-                    <p>Pathque Consulting is led by <span class="about-highlight">Martin Burks IV, MD, MBA, FCAP</span> — an AP/CP pathologist with fellowship training in cytopathology at the National Institutes of Health, a biomedical engineering foundation, and an MBA from the Darden School of Business.</p>
-                    <p>As a member of the <span class="about-highlight">CAP Economic Affairs Committee</span>, Martin works at the AMA/RUC level on AI reimbursement — shaping the policy infrastructure that determines how pathology AI gets paid for nationwide.</p>
-                    <p>We don't sell AI tools. We build the governance infrastructure that allows your organization to adopt AI safely, compliantly, and strategically.</p>
+                    <h2 class="section-title">Clinical Medicine × Technology × Business</h2>
+                    <p>Pathque is led by <span class="about-highlight">Martin Burks IV, MD, MBA, FCAP</span> — an AP/CP pathologist, NIH-trained cytopathologist, and AI architect who builds at the intersection that most people only talk about.</p>
+                    <p>As a member of the <span class="about-highlight">CAP Economic Affairs Committee</span>, Martin works at the AMA/RUC level on AI reimbursement policy — helping determine how pathology AI gets paid for nationwide. He's completing <span class="about-highlight">Stanford's AI in Healthcare Leadership</span> program in 2026.</p>
+                    <p>We don't sell AI tools. We architect the governance, strategy, and implementation infrastructure that lets your organization adopt AI safely, compliantly, and with a clear path to ROI.</p>
                 </div>
-                <div class="about-intersect reveal">
+                <div class="reveal">
                     <div class="intersect-item">
                         <div class="intersect-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
                         </div>
                         <div class="intersect-content">
                             <h4>Clinical Medicine</h4>
-                            <p>Board-certified AP/CP pathologist with NIH fellowship training. Understands the clinical workflows AI must integrate into.</p>
+                            <p>Board-certified AP/CP pathologist. NIH fellowship. Understands the clinical workflows AI must integrate into — because he works in them daily.</p>
                         </div>
                     </div>
                     <div class="intersect-item">
@@ -951,7 +1043,7 @@
                         </div>
                         <div class="intersect-content">
                             <h4>Technology</h4>
-                            <p>Biomedical engineering background from UVA. Fluent in the technical architecture of digital pathology and AI systems.</p>
+                            <p>Biomedical engineering from UVA. Fluent in digital pathology architecture, AI/ML systems, and the technical stack that makes it all work.</p>
                         </div>
                     </div>
                     <div class="intersect-item">
@@ -960,7 +1052,7 @@
                         </div>
                         <div class="intersect-content">
                             <h4>Business Strategy</h4>
-                            <p>Darden MBA with a finance focus. Translates AI initiatives into ROI, operational efficiency, and strategic advantage.</p>
+                            <p>Darden MBA, finance focus. Translates AI initiatives into ROI models, operational efficiency, and board-level strategic advantage.</p>
                         </div>
                     </div>
                 </div>
@@ -973,66 +1065,77 @@
         <div class="section-container">
             <div class="services-header reveal">
                 <div class="section-label">Services</div>
-                <h2 class="section-title">How We Help</h2>
-                <p class="section-desc">From initial assessment to ongoing strategic leadership, we meet your organization where you are on the AI governance journey.</p>
+                <h2 class="section-title">What We Build</h2>
+                <p class="section-desc">From initial assessment to ongoing strategic leadership. We meet your organization where you are on the AI journey.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-number">01</div>
                     <h3 class="service-title">AI Governance Assessment</h3>
-                    <p class="service-desc">A comprehensive evaluation of your organization's AI readiness, risk exposure, and governance gaps — aligned with Joint Commission and CHAI framework requirements.</p>
+                    <p class="service-desc">Comprehensive evaluation of AI readiness, risk exposure, and governance gaps — aligned with Joint Commission, CHAI, and FDA frameworks.</p>
                     <ul class="service-features">
                         <li>Current state AI inventory & risk analysis</li>
                         <li>Joint Commission compliance gap assessment</li>
-                        <li>Governance framework recommendations</li>
+                        <li>Governance framework design</li>
                         <li>Prioritized implementation roadmap</li>
                     </ul>
-                    <a href="mailto:martin.burksiv@gmail.com?subject=AI%20Governance%20Assessment%20Inquiry" class="service-link">
-                        Learn More
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    <a href="mailto:martin.burksiv@gmail.com?subject=AI%20Governance%20Assessment" class="service-link">
+                        Learn More <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                     </a>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-number">02</div>
                     <h3 class="service-title">Fractional Chief AI Officer</h3>
-                    <p class="service-desc">Ongoing AI strategy leadership for pathology groups and health systems. Get executive-level AI expertise without a full-time hire.</p>
+                    <p class="service-desc">Executive-level AI leadership for pathology groups and health systems — without a full-time hire. Strategy, vendor evaluation, and implementation oversight.</p>
                     <ul class="service-features">
-                        <li>AI strategy development & oversight</li>
-                        <li>Vendor evaluation & selection</li>
+                        <li>AI strategy development & board reporting</li>
+                        <li>Vendor evaluation & contract negotiation</li>
                         <li>Implementation roadmap execution</li>
-                        <li>Change management & staff training</li>
+                        <li>Change management & clinical adoption</li>
                     </ul>
-                    <a href="mailto:martin.burksiv@gmail.com?subject=Fractional%20Chief%20AI%20Officer%20Inquiry" class="service-link">
-                        Learn More
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    <a href="mailto:martin.burksiv@gmail.com?subject=Fractional%20CAIO%20Inquiry" class="service-link">
+                        Learn More <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                     </a>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-number">03</div>
-                    <h3 class="service-title">Speaking & Training</h3>
-                    <p class="service-desc">Keynote presentations, hands-on workshops, and CME-accredited educational sessions on AI in pathology for conferences and organizations.</p>
+                    <h3 class="service-title">Speaking & Advisory</h3>
+                    <p class="service-desc">Keynote presentations, board briefings, and expert advisory for organizations navigating the AI landscape. Thought leadership grounded in practice.</p>
                     <ul class="service-features">
                         <li>Conference keynotes & panels</li>
+                        <li>Board & C-suite AI briefings</li>
+                        <li>Expert network consulting</li>
                         <li>CME-accredited workshops</li>
-                        <li>Board & leadership briefings</li>
-                        <li>Custom training programs</li>
                     </ul>
-                    <a href="mailto:martin.burksiv@gmail.com?subject=Speaking%20%26%20Training%20Inquiry" class="service-link">
-                        Learn More
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    <a href="mailto:martin.burksiv@gmail.com?subject=Speaking%20Inquiry" class="service-link">
+                        Learn More <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SIGNAL BAR -->
+    <div class="signal-bar">
+        <div class="signal-bar-inner reveal">
+            <div class="signal-bar-label">Education & Affiliations</div>
+            <div class="signal-logos">
+                <span class="signal-item">UVA School of Medicine</span>
+                <span class="signal-item">Darden School of Business</span>
+                <span class="signal-item">National Institutes of Health</span>
+                <span class="signal-item">Stanford University</span>
+                <span class="signal-item">College of American Pathologists</span>
+            </div>
+        </div>
+    </div>
+
     <!-- CREDENTIALS -->
     <section class="credentials" id="credentials">
         <div class="section-container">
             <div class="reveal">
                 <div class="section-label">Credentials</div>
-                <h2 class="section-title">Education & Appointments</h2>
-                <p class="section-desc">A rare combination of clinical training, technical foundation, and business acumen — purpose-built for this moment in healthcare AI.</p>
+                <h2 class="section-title">Purpose-Built for This Moment</h2>
+                <p class="section-desc">A rare combination of clinical training, technical foundation, and business strategy — assembled deliberately over 15 years for exactly this inflection point in healthcare AI.</p>
             </div>
             <div class="credentials-grid">
                 <div class="reveal">
@@ -1048,14 +1151,14 @@
                         <div class="cred-marker"></div>
                         <div>
                             <h4>Master of Business Administration (MBA)</h4>
-                            <p>Darden School of Business, University of Virginia — Finance</p>
+                            <p>Darden School of Business — Finance</p>
                         </div>
                     </div>
                     <div class="cred-item">
                         <div class="cred-marker"></div>
                         <div>
                             <h4>BS, Biomedical Engineering</h4>
-                            <p>University of Virginia School of Engineering</p>
+                            <p>University of Virginia</p>
                         </div>
                     </div>
                     <div class="cred-item">
@@ -1069,7 +1172,7 @@
                         <div class="cred-marker"></div>
                         <div>
                             <h4>Cytopathology Fellowship</h4>
-                            <p>National Institutes of Health (NIH)</p>
+                            <p>National Institutes of Health</p>
                         </div>
                     </div>
                     <div class="cred-item">
@@ -1082,19 +1185,12 @@
                     </div>
                 </div>
                 <div class="reveal">
-                    <div class="cred-column-title">Board Certifications & Appointments</div>
+                    <div class="cred-column-title">Certifications & Appointments</div>
                     <div class="cred-item">
                         <div class="cred-marker"></div>
                         <div>
-                            <h4>Fellow, College of American Pathologists</h4>
-                            <p>FCAP — Board Certified in Anatomic & Clinical Pathology</p>
-                        </div>
-                    </div>
-                    <div class="cred-item">
-                        <div class="cred-marker"></div>
-                        <div>
-                            <h4>CAP Economic Affairs Committee</h4>
-                            <p>Working on AI reimbursement at the AMA/RUC level — shaping national policy for pathology AI payment</p>
+                            <h4>Fellow, College of American Pathologists (FCAP)</h4>
+                            <p>Board Certified — Anatomic & Clinical Pathology</p>
                         </div>
                     </div>
                     <div class="cred-item">
@@ -1104,21 +1200,37 @@
                             <p>American Board of Pathology</p>
                         </div>
                     </div>
+                    <div class="cred-item">
+                        <div class="cred-marker"></div>
+                        <div>
+                            <h4>CAP Economic Affairs Committee</h4>
+                            <p>AI reimbursement policy at the AMA/RUC level — shaping how pathology AI gets paid for nationally</p>
+                            <span class="cred-tag">Active</span>
+                        </div>
+                    </div>
+                    <div class="cred-item">
+                        <div class="cred-marker"></div>
+                        <div>
+                            <h4>Digital Pathology Lead</h4>
+                            <p>Leading digital pathology implementation and AI strategy at a 40+ pathologist group</p>
+                            <span class="cred-tag">Active</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT / CTA -->
+    <!-- CONTACT -->
     <section class="contact" id="contact">
         <div class="section-container">
             <div class="contact-inner reveal">
-                <div class="section-label" style="justify-content: center;">Get Started</div>
-                <h2 class="section-title">Ready to Build Your<br>AI Governance Framework?</h2>
-                <p class="section-desc">Whether you're responding to the Joint Commission mandate or proactively positioning your organization — let's talk about where you are and where you need to be.</p>
+                <div class="section-label" style="justify-content: center;">Let's Talk</div>
+                <h2 class="section-title">Ready to Build Your<br>AI Strategy?</h2>
+                <p class="section-desc">Whether you're responding to the Joint Commission mandate, evaluating digital pathology vendors, or building an AI governance framework from scratch — let's talk.</p>
                 <div class="contact-actions">
-                    <a href="mailto:martin.burksiv@gmail.com?subject=Pathque%20Consulting%20Inquiry" class="btn-primary">
-                        Schedule a Consultation
+                    <a href="mailto:martin.burksiv@gmail.com?subject=Pathque%20Inquiry" class="btn-primary">
+                        Start a Conversation
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                     </a>
                 </div>
@@ -1127,9 +1239,13 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
                         martin.burksiv@gmail.com
                     </a>
-                    <a href="https://linkedin.com/in/martin-v-burks-iv-m-d-mba-78296731" target="_blank" rel="noopener noreferrer" class="contact-detail">
+                    <a href="https://linkedin.com/in/martinburks" target="_blank" class="contact-detail">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         LinkedIn
+                    </a>
+                    <a href="card/" class="contact-detail">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15A2.25 2.25 0 0 0 2.25 6.75v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"/></svg>
+                        Digital Card
                     </a>
                 </div>
             </div>
@@ -1139,70 +1255,38 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-inner">
-            <div class="footer-text">&copy; 2026 Pathque Consulting. All rights reserved.</div>
+            <div class="footer-text">&copy; 2026 Pathque. All rights reserved.</div>
             <div class="footer-links">
-                <a href="https://linkedin.com/in/martin-v-burks-iv-m-d-mba-78296731" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://linkedin.com/in/martinburks" target="_blank">LinkedIn</a>
+                <a href="card/">Digital Card</a>
                 <a href="mailto:martin.burksiv@gmail.com">Contact</a>
             </div>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
     <script>
-        // Scroll-based nav styling
         const nav = document.getElementById('nav');
-        let lastScroll = 0;
-
         window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            if (scrollY > 80) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-            lastScroll = scrollY;
+            nav.classList.toggle('scrolled', window.scrollY > 80);
         }, { passive: true });
 
-        // Mobile menu
         const navToggle = document.getElementById('navToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileClose = document.getElementById('mobileClose');
-
-        navToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        });
-
+        navToggle.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
         mobileClose.addEventListener('click', closeMobile);
+        function closeMobile() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
 
-        function closeMobile() {
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
         }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(el => obs.observe(el));
 
-        reveals.forEach(el => revealObserver.observe(el));
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    const offset = 80;
-                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-                    window.scrollTo({ top, behavior: 'smooth' });
-                }
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
             });
         });
     </script>
