@@ -226,6 +226,51 @@
             background: var(--gold-light);
         }
 
+        .share-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-top: 12px;
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid rgba(201, 168, 76, 0.4);
+            border-radius: 12px;
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .share-btn:hover, .share-btn:active {
+            background: var(--gold-dim);
+            border-color: var(--gold);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--gold);
+            color: var(--navy);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
         .footer {
             text-align: center;
             margin-top: 20px;
@@ -291,6 +336,8 @@
 
         <a href="martin-burks.vcf" download="Martin-Burks.vcf" class="save-btn">Save Contact</a>
 
+        <button onclick="shareCard()" class="share-btn">Share Card</button>
+
         <p class="footer">PATHQUE</p>
     </div>
 
@@ -323,6 +370,38 @@
         }
 
         document.getElementById('qrcode').appendChild(canvas);
+
+        function showToast(msg) {
+            let t = document.createElement('div');
+            t.className = 'toast';
+            t.textContent = msg;
+            document.body.appendChild(t);
+            requestAnimationFrame(() => t.classList.add('show'));
+            setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 2500);
+        }
+
+        async function shareCard() {
+            const url = 'https://pathque.com/card';
+            const shareData = {
+                title: 'Martin V. Burks, IV M.D., MBA, FCAP',
+                text: 'Connect with Dr. Martin Burks — AI & Digital Pathology',
+                url: url
+            };
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch(e) {
+                    if (e.name !== 'AbortError') {
+                        await navigator.clipboard.writeText(url);
+                        showToast('Link copied!');
+                    }
+                }
+            } else {
+                await navigator.clipboard.writeText(url);
+                showToast('Link copied to clipboard!');
+            }
+        }
     </script>
 </body>
 </html>
